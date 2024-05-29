@@ -2,10 +2,14 @@ package it.intesys.snackbar.snackbar.service;
 
 import it.intesys.snackbar.snackbar.repository.UserRepository;
 import it.intesys.snackbar.snackbar.repository.WalletRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+    private static final Logger log = LoggerFactory.getLogger(SnackService.class);
+
     private final UserRepository userRepository;
     private final WalletRepository walletRepository;
 
@@ -31,7 +35,8 @@ public class UserService {
             throw new IllegalAccessException("User " + user + " does not exists");
         }
 
-        System.out.println(walletRepository.rechargeWallet(user, rechargeAmount));
+        Double updatedWallet = walletRepository.rechargeWallet(user, rechargeAmount);
+        log.info("User {}'s wallet has been recharged up to {}", user, updatedWallet);
 
         return true;
     }

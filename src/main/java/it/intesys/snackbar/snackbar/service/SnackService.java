@@ -57,7 +57,8 @@ public class SnackService {
     }
 
     public Boolean updateSnackPrice(String snack, Double price) {
-        System.out.println(priceRepository.updateSnackPrice(snack, price));
+        Double updatedPrice = priceRepository.updateSnackPrice(snack, price);
+        log.info("Snack {} price has been updated to {}", snack, updatedPrice);
         return true;
     }
 
@@ -77,7 +78,7 @@ public class SnackService {
             snackRepository.addSnack(snack, 0);
             priceRepository.addSnackPrice(snack, price);
 
-            log.info("Snack {} with {} price has been added", snack, price);
+            log.info("Snack {} with price {} has been added", snack, price);
         }
         return true;
     }

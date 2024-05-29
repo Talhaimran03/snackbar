@@ -34,7 +34,6 @@ public class AdminController {
 
     @GetMapping("/add-snack")
     public Boolean addSnacks(@RequestParam Map<String, String> params) {
-        System.out.println(params);
         Map<String, Double> snacks = params.entrySet().stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, entry -> Double.parseDouble(entry.getValue())));
         return snackService.addSnacks(snacks);
