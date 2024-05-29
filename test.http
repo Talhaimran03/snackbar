@@ -1,0 +1,16 @@
+GET http://localhost:8080/api/order-snack?user=Talha&snack=Mars
+
+###
+GET http://localhost:8080/api/recharge-wallet?user=Talha&recharge-amount=10
+
+###
+GET http://localhost:8080/api/recharge-snack?Mars=10&Twix=5
+
+###
+GET http://localhost:8080/api/update-snack-price?snack=Mars&price=10
+
+###
+GET http://localhost:8080/api/top-snacks
+
+###
+GET http://localhost:8080/api/add-snack?kitkat=2.30&chipster=2
